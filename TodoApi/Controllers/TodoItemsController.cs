@@ -29,7 +29,7 @@ namespace TodoApi.Controllers
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItemDTO>> GetTodoItem(long id)
+        public async Task<ActionResult<TodoItemDTO>> GetTodoItem(string id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace TodoApi.Controllers
         // PUT: api/TodoItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItemDTO todoItemDTO)
+        public async Task<IActionResult> PutTodoItem(string id, TodoItemDTO todoItemDTO)
         {
             if (id != todoItemDTO.Id)
             {
@@ -94,7 +94,7 @@ namespace TodoApi.Controllers
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoItem(long id)
+        public async Task<IActionResult> DeleteTodoItem(string id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
 
@@ -109,7 +109,7 @@ namespace TodoApi.Controllers
             return NoContent();
         }
 
-        private bool TodoItemExists(long id)
+        private bool TodoItemExists(string id)
         {
             return _context.TodoItems.Any(e => e.Id == id);
         }

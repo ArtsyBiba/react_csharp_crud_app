@@ -20,7 +20,11 @@ namespace TodoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+            services.Configure<TodoDatabaseSettings>(
+                Configuration.GetSection(nameof(TodoDatabaseSettings)));
+
+            services.AddSingleton<ITodoDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<TodoDatabaseSettings>>().Value);
 
             services.AddControllers();
         }
