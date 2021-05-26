@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
+using TodoApi.Services;
 
 namespace TodoApi
 {
@@ -25,6 +27,8 @@ namespace TodoApi
 
             services.AddSingleton<ITodoDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<TodoDatabaseSettings>>().Value);
+
+            services.AddSingleton<TodoService>();  
 
             services.AddControllers();
         }
