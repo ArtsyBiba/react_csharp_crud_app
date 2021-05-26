@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using TodoApi.Services;
+using Newtonsoft.Json;
 
 namespace TodoApi
 {
@@ -30,7 +31,8 @@ namespace TodoApi
 
             services.AddSingleton<TodoService>();  
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(options => options.UseMemberCasing());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
