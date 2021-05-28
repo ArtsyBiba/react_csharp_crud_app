@@ -4,6 +4,9 @@ export const Form = () => {
     const initialState = {
         name: "",
         author: "",
+        category: "",
+        link: "",
+        year: "",
     };
     
     const addBookCallback = async () => {
@@ -32,6 +35,30 @@ export const Form = () => {
                     id='author'
                     type='text'
                     placeholder='Author'
+                    onChange={onChange}
+                    required
+                />
+                <input
+                    name='category'
+                    id='category'
+                    type='text'
+                    placeholder='Category'
+                    onChange={onChange}
+                    required
+                />
+                <input
+                    name='link'
+                    id='link'
+                    type='text'
+                    placeholder='Link'
+                    onChange={onChange}
+                    required
+                />
+                <input
+                    name='year'
+                    id='year'
+                    type='text'
+                    placeholder='Year Read'
                     onChange={onChange}
                     required
                 />
