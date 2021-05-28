@@ -9,7 +9,7 @@ export const Form = () => {
     };
     
     const addBookCallback = async () => {
-        axios.post('https://localhost:5001/api', values).then(response => {
+        axios.post('https://localhost:5001/api/books', values).then(response => {
             console.log(response);
         })
         console.log(values);
