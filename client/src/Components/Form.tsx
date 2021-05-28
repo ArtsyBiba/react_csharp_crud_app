@@ -1,16 +1,17 @@
+import axios from 'axios';
+
 import { useForm } from '../hooks/useForm';
 
 export const Form = () => {
     const initialState = {
         name: "",
         author: "",
-        category: "",
-        link: "",
-        year: "",
     };
     
     const addBookCallback = async () => {
-        // to be updated with a server call
+        axios.post('https://localhost:5001/api', values).then(response => {
+            console.log(response);
+        })
         console.log(values);
     };
 
@@ -38,7 +39,7 @@ export const Form = () => {
                     onChange={onChange}
                     required
                 />
-                <input
+                {/* <input
                     name='category'
                     id='category'
                     type='text'
@@ -61,7 +62,7 @@ export const Form = () => {
                     placeholder='Year Read'
                     onChange={onChange}
                     required
-                />
+                /> */}
                 <button type='submit'>Add Book</button>
             </div>
         </form>

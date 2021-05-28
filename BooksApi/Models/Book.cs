@@ -15,8 +15,8 @@ namespace BooksApi.Models
         public string Name { get; set; }
 
         public string Author { get; set; }
-        public string Category { get; set; }
-        public string Link { get; set; }
-        public int YearRead { get; set; }
+        // public string Category { get; set; }
+        // public string Link { get; set; }
+        // public int YearRead { get; set; }
     }
 }
