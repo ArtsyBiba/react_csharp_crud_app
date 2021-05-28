@@ -1,70 +1,40 @@
 import axios from 'axios';
 
-import { useForm } from '../hooks/useForm';
+import { useForm, SubmitHandler } from 'react-hook-form';
+
+type Book = {
+    name: string,
+    author: string,
+}
 
 export const Form = () => {
-    const initialState = {
-        name: "",
-        author: "",
-    };
+    const { register, handleSubmit, formState: { errors } } = useForm<Book>();
     
-    const addBookCallback = async () => {
-        axios.post('https://localhost:5001/api/books', values).then(response => {
-            console.log(response);
-        })
-        console.log(values);
+    const onSubmit: SubmitHandler<Book> = (data) => {
+        try {
+            axios.post('https://localhost:5001/api/books', data);
+        } catch (err) {
+            console.log(err.response.data.msg);
+        }
     };
-
-    const { onChange, onSubmit, values } = useForm(
-        addBookCallback,
-        initialState
-    );
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-                <input
-                    name='name'
-                    id='name'
-                    type='text'
-                    placeholder='Book Name'
-                    onChange={onChange}
-                    required
-                />
-                <input
-                    name='author'
-                    id='author'
-                    type='text'
-                    placeholder='Author'
-                    onChange={onChange}
-                    required
-                />
-                {/* <input
-                    name='category'
-                    id='category'
-                    type='text'
-                    placeholder='Category'
-                    onChange={onChange}
-                    required
-                />
-                <input
-                    name='link'
-                    id='link'
-                    type='text'
-                    placeholder='Link'
-                    onChange={onChange}
-                    required
-                />
-                <input
-                    name='year'
-                    id='year'
-                    type='text'
-                    placeholder='Year Read'
-                    onChange={onChange}
-                    required
-                /> */}
-                <button type='submit'>Add Book</button>
+                <label htmlFor='name'>Book Name</label>
+                <input {...register('name', { required: true })} type='text'/>
+                {
+                    errors.name && <div className='error'>Enter the book name</div>
+                }
             </div>
+            <div>
+                <label htmlFor='author'>Author</label>
+                <input {...register('author', { required: true })} type='text'/>
+                {
+                    errors.author && <div className='error'>Enter the author name</div>
+                }
+            </div>
+            <button type='submit'>Add Book</button>
         </form>
     )
 }
