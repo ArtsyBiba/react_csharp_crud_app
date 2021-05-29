@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { Form } from './Components/Form';
+import { Dashboard } from './Components/Dashboard';
 
 export default function App() {
   return (
       <AppContainer>
-        <Dashboard>
-          <Form />
-        </Dashboard>
+        <Wrapper>
+          <Dashboard />
+        </Wrapper>
       </AppContainer>
   );
 }
@@ -21,7 +21,7 @@ const AppContainer = styled.div`
   background-color: #fdf8f9;
 `;
 
-const Dashboard = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 80%;
