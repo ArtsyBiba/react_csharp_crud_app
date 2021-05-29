@@ -1,12 +1,20 @@
-import './App.css';
+import styled from 'styled-components';
+
 import { Form } from './Components/Form';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Form />
-    </div>
+      <AppContainer>
+        <Form />
+      </AppContainer>
   );
 }
 
-export default App;
+const AppContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #fdf8f9;
+`;
