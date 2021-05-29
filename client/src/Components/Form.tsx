@@ -21,6 +21,11 @@ export const Form = () => {
 
     return (
         <Dashboard>
+            <HeaderWrapper>
+                <Subheader onClick={() => {}}>Add a Book</Subheader>
+                <Subheader onClick={() => {}}>What I've Read</Subheader>
+                <Subheader onClick={() => {}}>Books To Read</Subheader>
+            </HeaderWrapper>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor='name'>Book Name</label>
@@ -45,11 +50,32 @@ export const Form = () => {
 const Dashboard = styled.div`
     display: flex;
     flex-direction: column;
-    height: 80%;
-    width: 80%;
-    background-color: white;
-    align-items: center;
+    height: 90vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5em;
+`;
+
+const HeaderWrapper = styled.div`
+    display: flex;
+    height: 8vh;
+    align-content: center;
+    justify-content: space-around;
+`; 
+
+const Subheader = styled.div`
+    display: flex;
+    font-weight: 600;
+    font-size: 1em;
     justify-content: center;
-    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.1);
-    border-radius: 4px;
+    align-items: center;
+    line-height: 8vh;
+    text-transform: uppercase;
+    width: 33%;
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 4px solid rgba(245,60,47,0.85);
+        transition: all 0.3s ease 0s;
+    }
 `;
