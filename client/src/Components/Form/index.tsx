@@ -6,6 +6,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 type Book = {
     name: string,
     author: string,
+    category: string,
+    link: string,
+    isRead: boolean,
 }
 
 export const Form = () => {
