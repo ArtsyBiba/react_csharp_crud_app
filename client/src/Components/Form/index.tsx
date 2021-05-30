@@ -1,16 +1,13 @@
 import axios from 'axios';
-import styled from 'styled-components';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Input from '@material-ui/core/Input';
 
-import { FormWrapper } from './styles';
+import { FormWrapper, InputBox, InputTitle, InputContent, Input, Label, Underline } from './styles';
 
 type Book = {
     name: string,
     author: string,
     category: string,
     link: string,
-    isRead: boolean,
 }
 
 export const Form = () => {
@@ -25,21 +22,29 @@ export const Form = () => {
     };
 
     return (
-            <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label htmlFor='name'>Book Name</label>
-                    <input {...register('name', { required: true })} type='text'/>
+            <FormWrapper onSubmit={handleSubmit(onSubmit)}> 
+                <InputBox>
+                    <InputTitle>Book Name</InputTitle>
+                    <InputContent>
+                        <Input {...register('name', { required: true })} type='text'/>
+                        <Label htmlFor='name'>Book Name</Label>
+                        <Underline></Underline>
+                    </InputContent>
                     {
                         errors.name && <div className='error'>Enter the book name</div>
                     }
-                </div>
-                <div>
-                    <label htmlFor='author'>Author</label>
-                    <input {...register('author', { required: true })} type='text'/>
+                </InputBox>
+                <InputBox>
+                    <InputTitle>Author</InputTitle>
+                    <InputContent>
+                        <Input {...register('name', { required: true })} type='text'/>
+                        <Label htmlFor='name'>Author</Label>
+                        <Underline></Underline>
+                    </InputContent>
                     {
-                        errors.author && <div className='error'>Enter the author name</div>
+                        errors.name && <div className='error'>Enter the author name</div>
                     }
-                </div>
+                </InputBox>
                 <button type='submit'>Add Book</button>
             </FormWrapper>
     )

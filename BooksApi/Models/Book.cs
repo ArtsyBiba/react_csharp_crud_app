@@ -17,6 +17,5 @@ namespace BooksApi.Models
         public string Author { get; set; }
         public string Category { get; set; }
         public string Link { get; set; }
-        public bool IsRead { get; set; }
     }
 }
