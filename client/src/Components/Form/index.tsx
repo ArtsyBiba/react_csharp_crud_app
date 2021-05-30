@@ -1,7 +1,9 @@
 import axios from 'axios';
 import styled from 'styled-components';
-
 import { useForm, SubmitHandler } from 'react-hook-form';
+import Input from '@material-ui/core/Input';
+
+import { FormWrapper } from './styles';
 
 type Book = {
     name: string,
@@ -23,7 +25,7 @@ export const Form = () => {
     };
 
     return (
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <FormWrapper onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor='name'>Book Name</label>
                     <input {...register('name', { required: true })} type='text'/>
@@ -39,6 +41,6 @@ export const Form = () => {
                     }
                 </div>
                 <button type='submit'>Add Book</button>
-            </form>
+            </FormWrapper>
     )
 }
