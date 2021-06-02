@@ -1,16 +1,21 @@
+import { useState } from 'react';
 import { Form } from '../Form';
+import { BooksRead } from '../BooksRead';
 import { DashboardContainer, HeaderWrapper, Subheader } from './styles';
 
 export const Dashboard = () => {
+    const [ selectedHeader, setSelectedHeader ] = useState('form');
 
     return (
         <DashboardContainer>
             <HeaderWrapper>
-                <Subheader onClick={() => {}}>Add a Book</Subheader>
-                <Subheader onClick={() => {}}>What I've Read</Subheader>
-                <Subheader onClick={() => {}}>Books To Read</Subheader>
+                <Subheader onClick={() => setSelectedHeader('form')}>Add a Book</Subheader>
+                <Subheader onClick={() => setSelectedHeader('booksRead')}>What I've Read</Subheader>
+                <Subheader onClick={() => setSelectedHeader('booksToRead')}>Books To Read</Subheader>
             </HeaderWrapper>
-            <Form />
+            {selectedHeader === 'form' && <Form />}
+            {selectedHeader === 'booksRead' && <BooksRead />}
+            {selectedHeader === 'booksToRead' && null}
         </DashboardContainer>
     )
 }
