@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { FormWrapper, InputBox, InputTitle, InputContent, Input, Label, Underline, Button } from './styles';
+import { FormWrapper, InputBox, InputContent, Input, Label, Underline, Button, Error } from './styles';
 
 type Book = {
     name: string,
@@ -30,7 +30,7 @@ export const Form = () => {
                         <Underline></Underline>
                     </InputContent>
                     {
-                        errors.name && <div className='error'>Enter book name</div>
+                        errors.name && <Error>Enter book's name</Error>
                     }
                 </InputBox>
                 <InputBox>
@@ -40,7 +40,7 @@ export const Form = () => {
                         <Underline></Underline>
                     </InputContent>
                     {
-                        errors.author && <div className='error'>Enter author name</div>
+                        errors.author && <Error>Enter author's name</Error>
                     }
                 </InputBox>
                 <InputBox>
@@ -50,7 +50,7 @@ export const Form = () => {
                         <Underline></Underline>
                     </InputContent>
                     {
-                        errors.link && <div className='error'>Provide a link</div>
+                        errors.link && <Error>Provide a link</Error>
                     }
                 </InputBox>
                 <Button type='submit'>Add Book</Button>

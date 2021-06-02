@@ -14,11 +14,18 @@ export const InputBox = styled.dl`
     overflow: hidden;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
     padding: 15px 0 0 0;
 `;
+
+export const Error = styled.div`
+    align-self: start;
+    font-size: 0.8rem;
+    color: red;
+`; 
 
 export const InputTitle = styled.dt`
     position: absolute;
@@ -41,7 +48,8 @@ export const Input = styled.input`
     width: 100%;
     height: 30px;
     box-sizing: border-box;
-    line-height: 30px;
+    margin-top: 15px;
+    line-height: 40px;
     font-size: 14px;
     border: 0;
     background: none;
@@ -72,7 +80,7 @@ export const Label = styled.label`
     left:0;
     height: 30px;
     line-height: 30px;
-    color:#ccc;
+    color: black;
     cursor:text;
     transition: all 200ms ease-out;
     z-index:10;
