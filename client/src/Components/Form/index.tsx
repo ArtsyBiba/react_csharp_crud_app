@@ -24,7 +24,6 @@ export const Form = () => {
     return (
             <FormWrapper onSubmit={handleSubmit(onSubmit)}> 
                 <InputBox>
-                    <InputTitle>Book Name</InputTitle>
                     <InputContent>
                         <Input {...register('name', { required: true })} type='text'/>
                         <Label htmlFor='name'>Book's title</Label>
@@ -35,7 +34,6 @@ export const Form = () => {
                     }
                 </InputBox>
                 <InputBox>
-                    <InputTitle>Author</InputTitle>
                     <InputContent>
                         <Input {...register('author', { required: true })} type='text'/>
                         <Label htmlFor='author'>Author's name</Label>
@@ -46,10 +44,9 @@ export const Form = () => {
                     }
                 </InputBox>
                 <InputBox>
-                    <InputTitle>Link</InputTitle>
                     <InputContent>
                         <Input {...register('link', { required: true })} type='text'/>
-                        <Label htmlFor='link'>Goodreads, amazon, etc.</Label>
+                        <Label htmlFor='link'>Link - goodreads, amazon, etc.</Label>
                         <Underline></Underline>
                     </InputContent>
                     {

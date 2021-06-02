@@ -6,13 +6,18 @@ export const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 60%;
 `;
 
 export const InputBox = styled.dl`
     overflow: hidden;
-    position: relative;
-    padding: 15px 0 0 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 15px 0 0 0;
 `;
 
 export const InputTitle = styled.dt`
@@ -28,6 +33,7 @@ export const InputTitle = styled.dt`
 
 export const InputContent = styled.dd`
     position: relative;
+    margin-left: 0;
     width: 100%;
 `;
 
