@@ -6,16 +6,16 @@ import { FormWrapper, InputBox, InputTitle, InputContent, Input, Label, Underlin
 type Book = {
     name: string,
     author: string,
-    category: string,
     link: string,
 }
 
 export const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<Book>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<Book>();
     
     const onSubmit: SubmitHandler<Book> = (data) => {
         try {
-            axios.post('https://localhost:5001/api/books', data);
+            axios.post('https://localhost:5001/api/books', data)
+            reset();
         } catch (err) {
             console.log(err.response.data.msg);
         }
