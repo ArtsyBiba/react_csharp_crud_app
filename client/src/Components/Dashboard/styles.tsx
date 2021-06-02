@@ -26,6 +26,7 @@ export const Subheader = styled.div`
     text-transform: uppercase;
     width: 33%;
     cursor: pointer;
+    border-bottom: 1px solid rgba(245,60,47,0.85);
 
     &:hover {
         border-bottom: 4px solid rgba(245,60,47,0.85);

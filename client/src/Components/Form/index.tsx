@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { FormWrapper, InputBox, InputTitle, InputContent, Input, Label, Underline } from './styles';
+import { FormWrapper, InputBox, InputTitle, InputContent, Input, Label, Underline, Button } from './styles';
 
 type Book = {
     name: string,
@@ -27,7 +27,7 @@ export const Form = () => {
                     <InputTitle>Book Name</InputTitle>
                     <InputContent>
                         <Input {...register('name', { required: true })} type='text'/>
-                        <Label htmlFor='name'>Book Name</Label>
+                        <Label htmlFor='name'>Book's title</Label>
                         <Underline></Underline>
                     </InputContent>
                     {
@@ -38,7 +38,7 @@ export const Form = () => {
                     <InputTitle>Author</InputTitle>
                     <InputContent>
                         <Input {...register('author', { required: true })} type='text'/>
-                        <Label htmlFor='author'>Author</Label>
+                        <Label htmlFor='author'>Author's name</Label>
                         <Underline></Underline>
                     </InputContent>
                     {
@@ -49,14 +49,14 @@ export const Form = () => {
                     <InputTitle>Link</InputTitle>
                     <InputContent>
                         <Input {...register('link', { required: true })} type='text'/>
-                        <Label htmlFor='link'>Link</Label>
+                        <Label htmlFor='link'>Goodreads, amazon, etc.</Label>
                         <Underline></Underline>
                     </InputContent>
                     {
                         errors.link && <div className='error'>Provide a link</div>
                     }
                 </InputBox>
-                <button type='submit'>Add Book</button>
+                <Button type='submit'>Add Book</Button>
             </FormWrapper>
     )
 }

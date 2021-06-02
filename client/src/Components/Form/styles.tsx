@@ -83,3 +83,22 @@ export const Underline = styled.span`
     background: $accent-color;
     transition: all 200ms ease-out;
 `;
+
+export const Button = styled.button`
+    background-color: #4db8d6;
+
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    max-width: 250px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+    margin: 1.5rem 0.5rem 0.5rem 0.5rem;
+    align-self: center;
+
+    &:hover {
+        background-color: grey;
+    }
+`;
