@@ -6,14 +6,15 @@ type BookCardProps = {
     name: string,
     author: string,
     link: string,
+    id: string,
+    handleRemoveButton(key: string): void,
 }
 
-export const BookCard: FC<BookCardProps> = ({ name, author, link }) => {
-    
+export const BookCard: FC<BookCardProps> = ({ name, author, link, id, handleRemoveButton }) => {
     return (
         <Wrapper>
             <Text>📖 {name} - {author}</Text>
-            <Button>remove</Button>
+            <Button onClick={() => handleRemoveButton(id)}>remove</Button>
         </Wrapper>
     )
 }
