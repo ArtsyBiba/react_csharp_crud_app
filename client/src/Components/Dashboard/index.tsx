@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { Form } from '../Form';
 import { BooksRead } from '../BooksRead';
 import { DashboardContainer, HeaderWrapper, Subheader } from './styles';
 
-export const Dashboard = () => {
+export const Dashboard: FC = () => {
     const [ selectedHeader, setSelectedHeader ] = useState('form');
 
     return (

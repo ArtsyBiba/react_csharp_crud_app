@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import axios from 'axios';
 
 import { Wrapper } from './styles';
@@ -10,8 +10,8 @@ type Book = {
     link: string,
 }
 
-export const BooksRead = () => {
-    const [ books, setBooks ] = useState([]);
+export const BooksRead: FC = () => {
+    const [ books, setBooks ] = useState<Book[]>([]);
 
     useEffect(() => {
         try {
@@ -21,13 +21,13 @@ export const BooksRead = () => {
             console.log(err.response.data.msg);
         }
     }, [])
-console.log(books)
+
     return (
         <Wrapper>
             <ul>
-                {
-                    books.length && books.map((book, index) => (<li key={index}>{book.Link}</li>))
-                }
+                {/* {
+                    books.length && books.map((book) => (<li key={book.Id}>{book.Link}</li>))
+                } */}
             </ul>
         </Wrapper>
     )

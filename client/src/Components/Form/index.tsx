@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { FormWrapper, InputBox, InputContent, Input, Label, Underline, Button, Error } from './styles';
@@ -9,7 +10,7 @@ type Book = {
     link: string,
 }
 
-export const Form = () => {
+export const Form: FC = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<Book>();
     
     const onSubmit: SubmitHandler<Book> = (data) => {
