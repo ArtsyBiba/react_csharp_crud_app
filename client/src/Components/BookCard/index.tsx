@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import axios from 'axios';
 
 import { Text, Wrapper, Button } from './styles';
 
@@ -7,10 +8,20 @@ type BookCardProps = {
     author: string,
     link: string,
     id: string,
-    handleRemoveButton(key: string): void,
+    reload: boolean,
+    setReload(state: boolean): void,
 }
 
-export const BookCard: FC<BookCardProps> = ({ name, author, link, id, handleRemoveButton }) => {
+export const BookCard: FC<BookCardProps> = ({ name, author, link, id, reload, setReload }) => {
+    const handleRemoveButton = ( id: string ) => {
+        try {
+            axios.delete(`https://localhost:5001/api/books/${id}`)
+                .then(() => setReload(!reload))
+        } catch (err) {
+            console.log(err.response.data.msg);
+        }
+    };
+   
     return (
         <Wrapper>
             <Text>📖 {name} - {author}</Text>

@@ -13,6 +13,7 @@ type Book = {
 
 export const BooksRead: FC = () => {
     const [ books, setBooks ] = useState<Book[]>([]);
+    const [ reload, setReload ] = useState(true);
 
     useEffect(() => {
         try {
@@ -21,15 +22,7 @@ export const BooksRead: FC = () => {
         } catch (err) {
             console.log(err.response.data.msg);
         }
-    }, []);
-
-    const handleRemoveButton = ( id: string ) => {
-        try {
-            axios.delete(`https://localhost:5001/api/books/${id}`)
-        } catch (err) {
-            console.log(err.response.data.msg);
-        }
-    };
+    }, [reload]);
 
     return (
         <Wrapper>
@@ -42,7 +35,8 @@ export const BooksRead: FC = () => {
                             name={book.Name} 
                             author={book.Author} 
                             link={book.Link}
-                            handleRemoveButton={handleRemoveButton} 
+                            reload={reload} 
+                            setReload={setReload}
                         />)
                     )
                 }
