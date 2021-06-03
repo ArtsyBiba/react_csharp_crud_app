@@ -4,10 +4,10 @@ import axios from 'axios';
 import { Wrapper } from './styles';
 
 type Book = {
-    id: string,
-    name: string,
-    author: string,
-    link: string,
+    Id: string,
+    Name: string,
+    Author: string,
+    Link: string,
 }
 
 export const BooksRead: FC = () => {
@@ -25,9 +25,9 @@ export const BooksRead: FC = () => {
     return (
         <Wrapper>
             <ul>
-                {/* {
-                    books.length && books.map((book) => (<li key={book.Id}>{book.Link}</li>))
-                } */}
+                {
+                    books.length && books.map((book) => (<li key={book.Id}>{book.Name}</li>))
+                }
             </ul>
         </Wrapper>
     )
