@@ -2,6 +2,7 @@ import { useState, useEffect, FC } from 'react';
 import axios from 'axios';
 
 import { Wrapper } from './styles';
+import { BookCard } from '../BookCard';
 
 type Book = {
     Id: string,
@@ -26,7 +27,9 @@ export const BooksRead: FC = () => {
         <Wrapper>
             <ul>
                 {
-                    books.length && books.map((book) => (<li key={book.Id}>{book.Name}</li>))
+                    books.length && books.map((book) => 
+                        (<BookCard key={book.Id} name={book.Name} author={book.Author} link={book.Link} />)
+                    )
                 }
             </ul>
         </Wrapper>
